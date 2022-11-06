@@ -30,8 +30,35 @@
         </div>
     </div>
 
-    <!--Papir könyv megadása: -->
+    <!--Radius: -->
     <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h4>Kérem válassza ki, hogy milyen könyvet szeretne hozzáadni.</h4>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-6">
+                <h6>Papír könyv</h6>
+                <input type="radio" name="konyv" id="pK">
+            </div>
+            <div class="col-md-6">
+                <h6>eBook</h6>
+                <input type="radio" name="konyv" id="eK">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center"><p id="rKonyv"></p></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button id="bookType">Ok</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Papir könyv megadása: -->
+    <div class="container" id="pBookForm">
         <h1 class="text-center nagy">Papir könyv:</h1>
         <div class="row formElement">
             <label class="col-md-2 col-form-label">Könyv címe:</label>
@@ -69,15 +96,16 @@
             <button class="btn btn-primary" id="pKonyv">Hozzáadás</button>
         </div>       
     </div>
+
     <!--eBook megadása:s -->
-    <div class="container">
+    <div class="container" id="eBookForm">
         <h1 class="text-center nagy">Ebook:</h1>
         <div class="row formElement">
             <label class="col-md-2 col-form-label">Könyv címe:</label>
             <div class="col-md-10"><input id="eCim" class="form-control" type="text"></div>
         </div>
         <div class="row">
-            <div class="col-md-12 text-center" id="reCim"></div>
+            <div class="col-md-12 text-center"><p id="reCim"></p></div>
         </div>
 
         <div class="row formElement">
@@ -85,7 +113,7 @@
             <div class="col-md-10"><input id="ePrice" class="form-control" type="number"></div>
         </div>
         <div class="row">
-            <div class="col-md-12 text-center" id="rePrice"></div>
+            <div class="col-md-12 text-center"><p id="rePrice"></p></div>
         </div>
 
         <div class="row formElement">
@@ -93,7 +121,7 @@
             <div class="col-md-10"><input id="eSuly" class="form-control" type="number"></div>
         </div>
         <div class="row">
-            <div class="col-md-12 text-center" id="reSuly"></div>
+            <div class="col-md-12 text-center"><p id="reSuly"></p></div>
         </div>
 
         <div class="row formElement">
@@ -101,10 +129,10 @@
             <div class="col-md-10"><input id="eIsbn" class="form-control" type="text"></div>
         </div>
         <div class="row">
-            <div class="col-md-12 text-center" id="reIsbn"></div>
+            <div class="col-md-12 text-center"><p id="reIsbn"></p></div>
         </div>
 
-        <div class="text-center">
+        <div class="text-center botMargin">
             <button class="btn btn-primary" id="eKonyv">Hozzáadás</button>
         </div>
     </div>
