@@ -1,23 +1,29 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Ebook_1 = require("./Ebook");
+const PaperBook_1 = require("./PaperBook");
+let lista = [];
 document.addEventListener('DOMContentLoaded', () => {
     // default values:
     document.getElementById('dbSzam').textContent = '0';
     document.getElementById('idbSzam').textContent = '0';
     document.getElementById('aKAra').textContent = '0';
+    let darabszam = 0;
+    let ingyenesDarabSzam = 0;
+    let osszesAr = 0;
     // radius values
-    // error with form turning invis
     document.getElementById('bookType').addEventListener('click', () => {
         if (document.getElementById('pK').checked) {
             // hide eBook
             document.getElementById('rKonyv').textContent = '';
-            document.getElementById('eBookForm').style.visibility = 'hidden';
-            document.getElementById('pBookForm').style.visibility = 'visible';
+            document.getElementById('eBookForm').style.display = 'none';
+            document.getElementById('pBookForm').style.display = 'block';
         }
         else if (document.getElementById('eK').checked) {
             // hide paperBook
             document.getElementById('rKonyv').textContent = '';
-            document.getElementById('pBookForm').style.visibility = 'hidden';
-            document.getElementById('eBookForm').style.visibility = 'visible';
+            document.getElementById('pBookForm').style.display = 'none';
+            document.getElementById('eBookForm').style.display = 'block';
         }
         else {
             document.getElementById('rKonyv').textContent = "Kérem válasszon egy könyv típust!";
@@ -37,7 +43,16 @@ document.addEventListener('DOMContentLoaded', () => {
         let joIsbn = document.getElementById('pIsbn').value.length == 13;
         if (joKonyv && joAr && joSuly && joIsbn) {
             // listához adás:
-            console.log('papir Minden jó');
+            lista.push(new PaperBook_1.PaperBook(document.getElementById('pCim').value, parseInt(document.getElementById('pPrice').value), parseInt(document.getElementById('pSuly').value), document.getElementById('pIsbn').value));
+            // Felso szamlalok valtoztatasa
+            darabszam++;
+            osszesAr += parseInt(document.getElementById('pPrice').value);
+            if (parseInt(document.getElementById('pPrice').value) == 0) {
+                ingyenesDarabSzam++;
+            }
+            document.getElementById('dbSzam').textContent = darabszam.toString();
+            document.getElementById('idbSzam').textContent = ingyenesDarabSzam.toString();
+            document.getElementById('aKAra').textContent = osszesAr.toString();
             document.getElementById('pCim').value = '';
             document.getElementById('pPrice').value = '';
             document.getElementById('pSuly').value = '';
@@ -70,7 +85,17 @@ document.addEventListener('DOMContentLoaded', () => {
         let joIsbn = document.getElementById('eIsbn').value.length == 13;
         if (joKonyv && joAr && joSuly && joIsbn) {
             // listához adás:
-            console.log('papir Minden jó');
+            lista.push(new Ebook_1.Ebook(document.getElementById('eCim').value, parseInt(document.getElementById('ePrice').value), parseInt(document.getElementById('eSuly').value), document.getElementById('eIsbn').value));
+            // Felso adatok változtatasa:
+            darabszam++;
+            osszesAr += parseInt(document.getElementById('ePrice').value);
+            if (parseInt(document.getElementById('ePrice').value) == 0) {
+                ingyenesDarabSzam++;
+            }
+            document.getElementById('dbSzam').textContent = darabszam.toString();
+            document.getElementById('idbSzam').textContent = ingyenesDarabSzam.toString();
+            document.getElementById('aKAra').textContent = osszesAr.toString();
+            // Adattorles      
             document.getElementById('eCim').value = '';
             document.getElementById('ePrice').value = '';
             document.getElementById('eSuly').value = '';

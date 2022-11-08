@@ -1,7 +1,7 @@
 import { Book } from "./Book";
 
 
-class Ebook implements Book{
+export class Ebook implements Book{
     title: string;
     price: number;
     isbn: string;

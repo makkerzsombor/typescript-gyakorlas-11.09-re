@@ -1,6 +1,6 @@
 import { Book } from "./Book";
 
-class PaperBook implements Book{
+export class PaperBook implements Book{
     title: string;
     price: number;
     isbn: string;
